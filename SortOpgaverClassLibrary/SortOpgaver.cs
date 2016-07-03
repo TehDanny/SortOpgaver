@@ -106,7 +106,7 @@ namespace SortOpgaverClassLibrary
             //   tips flyt elementer "bagfra" hvis de er større, så du kan få det nye
             //   ind på den den plads der tilhørte det første element
             // Når du har kodet din egen løsning så undersøg om List har en metode, der løser det nemt
-
+            
             int tempValue;
 
             if (IntList.Count != 1)
@@ -140,13 +140,10 @@ namespace SortOpgaverClassLibrary
                 intListCopy.AddRange(IntList);
                 IntList.Clear();
 
-                int listCount = intListCopy.Count;
-                for (int i = 0; i < listCount - 1; i++)
+                for (int i = 0; i < intListCopy.Count - 1; i++)
                 {
-                    IntList.Add(intListCopy.Min());
-                    intListCopy.Remove(intListCopy.Min());
+                    InsertElementInOrderedList(intListCopy[i]);
                 }
-                IntList.Add(intListCopy[0]); // adds the last value
             }
         }
 
@@ -159,10 +156,23 @@ namespace SortOpgaverClassLibrary
 
             // programmer metoden med selvvalgt algoritme
 
-            throw new NotImplementedException();
+            if (IntList != null && IntList.Count != 0)
+            {
+                List<int> intListCopy = new List<int>();
+                intListCopy.AddRange(IntList);
+                IntList.Clear();
+
+                int listCount = intListCopy.Count;
+                for (int i = 0; i < listCount - 1; i++)
+                {
+                    IntList.Add(intListCopy.Min());
+                    intListCopy.Remove(intListCopy.Min());
+                }
+                IntList.Add(intListCopy[0]); // adds the last remaining value
+            }
         }
 
-        public void EasyReverseSort_UsingBuildInSortOnList ()
+        public void EasyReverseSort_UsingBuildInSortOnList()
         {
             // Precondition: 
             //      IntList forudsættes at være usorteret
@@ -170,8 +180,11 @@ namespace SortOpgaverClassLibrary
             //      IntList skal nu være sorteret, men i faldende orden
 
             // programmer metoden ved "blot" at bruge en eller 2 metoder på List klassen
-            IntList.Sort();
-            IntList.Reverse();
+            if (IntList != null && IntList.Count != 0)
+            {
+                IntList.Sort();
+                IntList.Reverse();
+            }
         }
     }
 }
