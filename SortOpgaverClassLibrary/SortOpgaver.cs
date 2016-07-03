@@ -88,17 +88,17 @@ namespace SortOpgaverClassLibrary
             } while (hasSwapped == true);
         }
 
-    public void InsertElementInOrderedList(int newValue)
+        public void InsertElementInOrderedList(int newValue)
         {
             // Denne metode kan dels ses som selvstændig, dels kan den bruges som del af løsning for en InsertionSort
             // Precondition: 
             //      IntList forudsættes at være sorteret
             // Postcondition:
             //      IntList skal nu være sorteret og indeholde såvel tidligere elementer som det nye
-
-            IntList.Add(newValue);    // opret en plads ekstra sidst i listen, så der er plads totalt set (index for alle)
-                                      // Jeg har her valgt blot at indsætte det nye - kan også være et hint til næste opgave
-                                      // hvor man til sidst kun mangler at få det sidste med i den sorterede del
+            if (IntList != null)
+                IntList.Add(newValue);    // opret en plads ekstra sidst i listen, så der er plads totalt set (index for alle)
+                                          // Jeg har her valgt blot at indsætte det nye - kan også være et hint til næste opgave
+                                          // hvor man til sidst kun mangler at få det sidste med i den sorterede del
 
             // programmer metoden så elementet indsættes på den rigtige plads
             // Du skal klare løsningen uden "smarte List metoder", men muligheden for tilgang til
@@ -109,13 +109,16 @@ namespace SortOpgaverClassLibrary
 
             int tempValue;
 
-            for (int i = IntList.Count; i > 1; i--)
+            if (IntList.Count != 1)
             {
-                if (IntList[i] < IntList[i - 1])
+                for (int i = IntList.Count - 1; i > 0; i--)
                 {
-                    tempValue = IntList[i-1];
-                    IntList[i - 1] = IntList[i];
-                    IntList[i] = tempValue;
+                    if (IntList[i] < IntList[i - 1])
+                    {
+                        tempValue = IntList[i - 1];
+                        IntList[i - 1] = IntList[i];
+                        IntList[i] = tempValue;
+                    }
                 }
             }
         }
@@ -131,7 +134,20 @@ namespace SortOpgaverClassLibrary
             // Du kan evt. lave den lidt simpel ved først at lave en kopi af listen, herefter tømme den og 
             // løbe kopien igennem og for hver så bruge InsertElementInOrderedList
 
-            throw new NotImplementedException();
+            if (IntList != null && IntList.Count != 0)
+            {
+                List<int> intListCopy = new List<int>();
+                intListCopy.AddRange(IntList);
+                IntList.Clear();
+
+                int listCount = intListCopy.Count;
+                for (int i = 0; i < listCount - 1; i++)
+                {
+                    IntList.Add(intListCopy.Min());
+                    intListCopy.Remove(intListCopy.Min());
+                }
+                IntList.Add(intListCopy[0]); // adds the last value
+            }
         }
 
         public void AnotherSortOfYourChoice()

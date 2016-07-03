@@ -5,8 +5,6 @@ using System;
 
 namespace SortOpgaveTestProject
 {
-    
-    
     /// <summary>
     ///This is a test class for SortOpgaverTest and is intended
     ///to contain all SortOpgaverTest Unit Tests
@@ -14,8 +12,6 @@ namespace SortOpgaveTestProject
     [TestClass()]
     public class SortOpgaverTest
     {
-
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -110,7 +106,6 @@ namespace SortOpgaveTestProject
             return true;
         }
 
-
         [TestMethod(), Timeout(1500)]
         public void BubbleSort_PrimitiveTest()
         {
@@ -123,7 +118,6 @@ namespace SortOpgaveTestProject
             Assert.IsTrue(IsSorted(sortedData), "Data er ikke sorteret");
             Assert.IsTrue(HasSameElements(data, sortedData), "Der er ikke sammme elementer i det sorterede som i data før");
         }
-
 
         [TestMethod(), Timeout(500)]
         public void BubbleSort_Primitive_OptimizedTest()
@@ -138,15 +132,14 @@ namespace SortOpgaveTestProject
             Assert.IsTrue(HasSameElements(data, sortedData), "Der er ikke sammme elementer i det sorterede som i data før");
         }
 
-
-
         [TestMethod(), Timeout(500)]
         public void InsertElementInOrderedListTest_01()
         {
             int insertElementValue = 21;
             int[] data = { 5, 8, 13, 20, 30, 31 };
+            int[] dataWithElement = { 5, 8, 13, 20, 21, 30, 31 };
 
-            List<int> expectedDataWithElement = new List<int>(data);
+            List<int> expectedDataWithElement = new List<int>(dataWithElement);
 
             SortOpgaver opgaver = new SortOpgaver();
             opgaver.FillList(data);
@@ -162,8 +155,9 @@ namespace SortOpgaveTestProject
         {
             int insertElementValue = 4;
             int[] data = { 5, 8, 13, 20, 30, 31 };
+            int[] dataWithElement = { 4, 5, 8, 13, 20, 30, 31 };
 
-            List<int> expectedDataWithElement = new List<int>(data);
+            List<int> expectedDataWithElement = new List<int>(dataWithElement);
 
             SortOpgaver opgaver = new SortOpgaver();
             opgaver.FillList(data);
@@ -179,8 +173,9 @@ namespace SortOpgaveTestProject
         {
             int insertElementValue = 32;
             int[] data = { 5, 8, 13, 20, 30, 31 };
+            int[] dataWithElement = { 5, 8, 13, 20, 30, 31 , 32 };
 
-            List<int> expectedDataWithElement = new List<int>(data);
+            List<int> expectedDataWithElement = new List<int>(dataWithElement);
 
             SortOpgaver opgaver = new SortOpgaver();
             opgaver.FillList(data);
@@ -196,8 +191,9 @@ namespace SortOpgaveTestProject
         {
             int insertElementValue = 4;
             int[] data = {  };          // ingen data
+            int[] dataWithElement = { 4 };
 
-            List<int> expectedDataWithElement = new List<int>(data);
+            List<int> expectedDataWithElement = new List<int>(dataWithElement);
 
             SortOpgaver opgaver = new SortOpgaver();
             opgaver.FillList(data);
@@ -207,10 +203,6 @@ namespace SortOpgaveTestProject
             Assert.IsTrue(IsSorted(sortedData), "Data er ikke sorteret");
             Assert.IsTrue(HasSameElements(expectedDataWithElement, sortedData), "Der er ikke sammme elementer i det sorterede som i data før");
         }
-
-
-
-
 
         [TestMethod(),Timeout(500)]
         public void InsertionSortTest()
@@ -236,7 +228,6 @@ namespace SortOpgaveTestProject
             List<int> sortedData = opgaver.GetIntListCopy();
             Assert.IsTrue(IsSorted(sortedData), "Data er ikke sorteret");
             Assert.IsTrue(HasSameElements(data, sortedData), "Der er ikke sammme elementer i det sorterede som i data før");
-        
         }
 
         [TestMethod(), Timeout(500)]
@@ -252,6 +243,5 @@ namespace SortOpgaveTestProject
             List<int> sortedData = opgaver.GetIntListCopy();
             Assert.IsTrue(IsInSameOrder(reverseSortedData, sortedData), "Data er ikke sorteret i faldende orden");
         }
-    
     }
 }
