@@ -1,0 +1,21 @@
+Opgaver med sorteringsalgoritmer
+
+De skulle være af stigenede sværhedsgrad, så lav dem i rækkefølge
+
+Den sidste x, er uden for kategori - den bør du lave
+ - her bruger du metoder på List, som er relevente at kende og bruge i praksis, 
+   hvor du ikke selv koder sortering, men anvender indbyggede optimerede metoder
+
+
+
+1)        public void BubbleSort_Primitive()
+2)        public void BubbleSort_Primitive_Optimized()
+3)        public void InsertElementInOrderedList(int newValue)
+4)        public void InsertionSort()
+5)        public void AnotherSortOfYourChoice()
+
+
+x)		EasyReverseSort_UsingBuildInSortOnList()
+
+God arbejdslyst med opgaverne
+mvh Bjørk Boye Busch
