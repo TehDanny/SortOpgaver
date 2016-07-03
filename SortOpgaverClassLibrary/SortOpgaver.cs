@@ -106,10 +106,18 @@ namespace SortOpgaverClassLibrary
             //   tips flyt elementer "bagfra" hvis de er større, så du kan få det nye
             //   ind på den den plads der tilhørte det første element
             // Når du har kodet din egen løsning så undersøg om List har en metode, der løser det nemt
-            
 
+            int tempValue;
 
-            throw new NotImplementedException();
+            for (int i = IntList.Count; i > 1; i--)
+            {
+                if (IntList[i] < IntList[i - 1])
+                {
+                    tempValue = IntList[i-1];
+                    IntList[i - 1] = IntList[i];
+                    IntList[i] = tempValue;
+                }
+            }
         }
 
         public void InsertionSort()
