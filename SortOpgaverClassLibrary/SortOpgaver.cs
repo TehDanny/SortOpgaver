@@ -38,7 +38,24 @@ namespace SortOpgaverClassLibrary
 
             // programmer metoden med brug af simpel bubble sorterings algoritme 
 
-            throw new NotImplementedException();
+            bool hasSwapped;
+            int tempValue;
+
+            do
+            {
+                hasSwapped = false;
+
+                for (int i = 0; i < IntList.Count - 1; i++)
+                {
+                    if (IntList[i] > IntList[i + 1])
+                    {
+                        tempValue = IntList[i];
+                        IntList[i] = IntList[i + 1];
+                        IntList[i + 1] = tempValue;
+                        hasSwapped = true;
+                    }
+                }
+            } while (hasSwapped == true);
         }
 
         public void BubbleSort_Primitive_Optimized()
