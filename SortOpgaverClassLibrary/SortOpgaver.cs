@@ -170,9 +170,8 @@ namespace SortOpgaverClassLibrary
             //      IntList skal nu være sorteret, men i faldende orden
 
             // programmer metoden ved "blot" at bruge en eller 2 metoder på List klassen
-
-            throw new NotImplementedException();
+            IntList.Sort();
+            IntList.Reverse();
         }
-
     }
 }
